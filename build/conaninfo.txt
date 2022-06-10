@@ -1,0 +1,44 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=gcc
+    compiler.libcxx=libstdc++11
+    compiler.version=11
+    os=Linux
+
+[requires]
+    ncurses/6.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    arch_build=x86_64
+    build_type=Release
+    compiler=gcc
+    compiler.libcxx=libstdc++11
+    compiler.version=11
+    os=Linux
+    os_build=Linux
+
+[full_requires]
+    ncurses/6.3:89763a2b31b2939794b7de311235a77b84e7e535
+
+[full_options]
+    ncurses:fPIC=True
+    ncurses:shared=False
+    ncurses:with_cxx=True
+    ncurses:with_extended_colors=True
+    ncurses:with_pcre2=False
+    ncurses:with_progs=True
+    ncurses:with_reentrant=False
+    ncurses:with_ticlib=auto
+    ncurses:with_tinfo=auto
+    ncurses:with_widec=True
+
+[recipe_hash]
+
+
+[env]
+
