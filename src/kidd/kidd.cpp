@@ -7,6 +7,8 @@ Kidd::Kidd(ArgConfig &config)
     : _config(std::move(config))
 {
     curses_init();
+    mousemask(ALL_MOUSE_EVENTS | REPORT_MOUSE_POSITION, NULL);
+    scrollok(stdscr, true);
 }
 
 int Kidd::run()
@@ -15,7 +17,7 @@ int Kidd::run()
     while (true)
     {
         EventPoll::pull_event();
-        printw("Your Input: %d\n", EventPoll::get_event().data);
+        printw("%ls\n", type_map.at(EventPoll::get_event().event).c_str());
     }
 
     return 0;

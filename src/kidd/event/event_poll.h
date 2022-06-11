@@ -2,7 +2,16 @@
 #define _KIDD_EVENT_POLL_H__
 
 #include <queue>
+#include <unordered_map>
+#include <type.h>
 #include "event.h"
+
+const static std::unordered_map<EventType, type::string> type_map {
+    {EventType::KeyDown, _("EventType::KeyDown")},
+    {EventType::MouseMove, _("EventType::MouseMove")},
+    {EventType::Resize, _("EventType::Resize")},
+    {EventType::None, _("EventType::None")}
+};
 
 class EventPoll
 {
