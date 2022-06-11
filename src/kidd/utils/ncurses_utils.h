@@ -2,6 +2,7 @@
 #define _KIDD_NCURSES_UTILS_H__
 
 #include <locale>
+#include <ncursesw/ncurses.h>
 
 void curses_init()
 {
