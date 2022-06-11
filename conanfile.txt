@@ -1,5 +1,6 @@
 [requires]
 ncurses/6.3
+argparse/2.5
 
 [generators]
 cmake
