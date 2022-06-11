@@ -2,13 +2,14 @@
 #define _KIDD_WINDOW_H__
 
 #include <list>
-#include "components/view.h"
+#include <memory>
 
+class View;
 class Window
 {
 private:
-    std::list<std::weak_ptr<View>> _views;
-    std::list<std::weak_ptr<View>>::iterator _active_view;
+    std::list<std::shared_ptr<View>> _views;
+    std::list<std::shared_ptr<View>>::iterator _active_view;
 public:
     Window();
     void add_view(std::shared_ptr<View> view, bool active = false);

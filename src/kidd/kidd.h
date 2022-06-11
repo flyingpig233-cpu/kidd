@@ -11,6 +11,7 @@ private:
 public:
     Kidd(ArgConfig &config);
     int run();
+    ~Kidd();
 };
 
 #endif // _KIDD_KIDD_H__

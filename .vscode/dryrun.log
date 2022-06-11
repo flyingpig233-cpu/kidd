@@ -5,16 +5,19 @@ make: Entering directory '/home/momo/workspace/projects/kidd'
 make -f CMakeFiles/Makefile2 all
 make[1]: Entering directory '/home/momo/workspace/projects/kidd'
 make -f src/CMakeFiles/kidd.dir/build.make src/CMakeFiles/kidd.dir/depend
+ 
 make[2]: Entering directory '/home/momo/workspace/projects/kidd'
 cd /home/momo/workspace/projects/kidd && /usr/bin/cmake -E cmake_depends "Unix Makefiles" /home/momo/workspace/projects/kidd /home/momo/workspace/projects/kidd/src /home/momo/workspace/projects/kidd /home/momo/workspace/projects/kidd/src /home/momo/workspace/projects/kidd/src/CMakeFiles/kidd.dir/DependInfo.cmake --color=
 make[2]: Leaving directory '/home/momo/workspace/projects/kidd'
 make -f src/CMakeFiles/kidd.dir/build.make src/CMakeFiles/kidd.dir/build
+ 
 make[2]: Entering directory '/home/momo/workspace/projects/kidd'
 /usr/bin/cmake -E cmake_echo_color --switch= --green --progress-dir=/home/momo/workspace/projects/kidd/CMakeFiles --progress-num=1 "Building CXX object src/CMakeFiles/kidd.dir/main.cpp.o"
 cd /home/momo/workspace/projects/kidd/src && /usr/bin/c++   -I/home/momo/.conan/data/ncurses/6.3/_/_/package/89763a2b31b2939794b7de311235a77b84e7e535/include -I/home/momo/.conan/data/ncurses/6.3/_/_/package/89763a2b31b2939794b7de311235a77b84e7e535/include/ncursesw -I/home/momo/workspace/projects/kidd/src/kidd  -DNCURSES_STATIC -o CMakeFiles/kidd.dir/main.cpp.o -c /home/momo/workspace/projects/kidd/src/main.cpp
 /usr/bin/cmake -E cmake_echo_color --switch= --green --bold --progress-dir=/home/momo/workspace/projects/kidd/CMakeFiles --progress-num=2 "Linking CXX executable ../bin/kidd"
 cd /home/momo/workspace/projects/kidd/src && /usr/bin/cmake -E cmake_link_script CMakeFiles/kidd.dir/link.txt --verbose=
 make[2]: Leaving directory '/home/momo/workspace/projects/kidd'
+ 
 /usr/bin/cmake -E cmake_echo_color --switch= --progress-dir=/home/momo/workspace/projects/kidd/CMakeFiles --progress-num=1,2 "Built target kidd"
 make[1]: Leaving directory '/home/momo/workspace/projects/kidd'
 /usr/bin/cmake -E cmake_progress_start /home/momo/workspace/projects/kidd/CMakeFiles 0

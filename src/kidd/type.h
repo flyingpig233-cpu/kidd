@@ -7,6 +7,8 @@
 namespace type
 {
 
+using pos_type = unsigned int;
+
 using os_char_type = char;
 using os_string = std::basic_string<os_char_type>;
 #define __(s) s
@@ -21,6 +23,13 @@ using string = std::basic_string<char_type>;
 #define _(s) s
 #endif // UNICODE
 
+};
+
+
+struct Position
+{
+    type::pos_type x;
+    type::pos_type y;
 };
 
 #endif //_KIDD_TYPE_H__

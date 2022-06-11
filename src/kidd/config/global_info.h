@@ -1,7 +1,7 @@
 #ifndef _KIDD_GLOBAL_INFO_H__
 #define _KIDD_GLOBAL_INFO_H__
 
-#include "../type.h"
+#include "type.h"
 
 namespace info
 {

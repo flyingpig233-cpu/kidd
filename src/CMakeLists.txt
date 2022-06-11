@@ -1,7 +1,8 @@
 
 aux_source_directory(. SRC_LIST)
 aux_source_directory(kidd SRC_LIST)
-aux_source_directory(kidd/event/ SRC_LIST)
+aux_source_directory(kidd/components/ SRC_LIST)
+aux_source_directory(kidd/utils/gapbuffer SRC_LIST)
 message(STATUS ${SRC_LIST})
 include_directories(kidd)
 

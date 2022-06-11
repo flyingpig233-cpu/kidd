@@ -2,7 +2,7 @@
 #define _KIDD_ARG_CONFIG_H__
 
 #include <vector>
-#include "../type.h"
+#include "type.h"
 
 
 struct ArgConfig {
