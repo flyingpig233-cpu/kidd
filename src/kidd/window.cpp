@@ -6,7 +6,7 @@ Window::Window()
 
 }
 
-void Window::add_view(std::shared_ptr<View> view, bool active = false)
+void Window::add_view(std::shared_ptr<View> view, bool active)
 {
     _views.push_back(view);
     if (active || _views.size() <= 1)

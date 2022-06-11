@@ -1,5 +1,8 @@
-set(SRC_LIST main.cpp)
+
+aux_source_directory(. SRC_LIST)
 aux_source_directory(kidd SRC_LIST)
+aux_source_directory(kidd/event/ SRC_LIST)
+message(STATUS ${SRC_LIST})
 include_directories(kidd)
 
 message(STATUS ${SRC_LIST})
