@@ -11,6 +11,7 @@ namespace info
         Author Link: https://github.com/flyingpig233-cpu😊
     )";
     const std::string PROGRAM_VERSION = "1.0.0";
+    const std::string LOGGER_NAME = "kidd_logger";
 }
 
 #endif // _KIDD_GLOBAL_INFO_H__

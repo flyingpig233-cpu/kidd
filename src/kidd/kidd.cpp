@@ -4,8 +4,10 @@
 #include "window.h"
 #include "components/view.h"
 #include "event/event_poll.h"
-
+#include "utils/logger.h"
+#include <spdlog/spdlog.h>
 #include <assert.h>
+
 Kidd::Kidd(ArgConfig &config)
     : _config(std::move(config))
 {
@@ -17,12 +19,14 @@ Kidd::Kidd(ArgConfig &config)
 int Kidd::run()
 {
     std::shared_ptr<Window> w = std::make_shared<Window>();
-    w->add_view(std::make_shared<View>(w, WindowConfig { 0 }));
-    while (true)
+    auto gap = std::make_shared<GapBuffer>();
+    w->add_view(std::make_shared<View>(w, WindowConfig { 0 }, gap));
+    while (1)
     {
+        wint_t ch;
+        get_wch(&ch);
+        gap->PutChar(ch);
         w->update();
-        // EventPoll::pull_event();
-        // printw("%ls\n", type_map.at(EventPoll::get_event().event).c_str());
     }
 
     return 0;

@@ -5,7 +5,7 @@
 #include <memory>
 #include <list>
 #include "config/window_config.h"
-#include "utils/gapbuffer/gap_buffer.h"
+#include "utils/gapbuffer/gapbuffer.h"
 
 class Window;
 class View
@@ -17,11 +17,12 @@ protected:
     std::shared_ptr<WINDOW> _window;
     std::weak_ptr<Window> _parent;
     gap_buffer_list _buffers;
-    gap_buffer_list::iterator _active_buffer;
+    gap_buffer_list::size_type _active_buffer;
     WindowConfig _window_config;
     
 public:
     View(std::shared_ptr<Window> parent, WindowConfig config, gap_buffer_t buffer = nullptr);
+    std::shared_ptr<GapBuffer> get_active_buffer();
     void update();
     ~View() {};
 };

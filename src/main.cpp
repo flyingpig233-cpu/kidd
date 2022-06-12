@@ -1,11 +1,17 @@
 #include <argparse/argparse.hpp>
 #include "kidd.h"
-#include "type.h"
+#include "utils/logger.h"
 #include "config/global_info.h"
 #include "config/arg_config.h"
+#include <spdlog/spdlog.h>
 
 int main(int argc, type::os_char_type **argv)
 {
+    //init logger
+    auto logger = spdlog::basic_logger_mt(info::LOGGER_NAME, "logs/log.txt");
+    spdlog::set_default_logger(logger);
+    spdlog::flush_on(spdlog::level::info);
+
     // parse args
     argparse::ArgumentParser program(info::PROGRAM_NAME);
     program.add_description(info::PROGRAM_DISCRIPTION);
@@ -27,6 +33,18 @@ int main(int argc, type::os_char_type **argv)
 
 
     const auto filenames =  program.get<std::vector<std::string>>("f");
+    std::string list;
+
+    list.append("[");
+    for (auto &&e : filenames)
+    {
+        list.append("\"" + e + "\"");
+        list.push_back(',');
+    }
+    list.pop_back();
+    list.append("]");
+    
+    log_info("file list: {}", list);
     ArgConfig config;
     config.filenames = std::move(filenames);
     Kidd kidd(config);

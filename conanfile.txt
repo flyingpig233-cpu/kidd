@@ -1,6 +1,7 @@
 [requires]
 ncurses/6.3
 argparse/2.5
+spdlog/1.10.0
 
 [generators]
 cmake

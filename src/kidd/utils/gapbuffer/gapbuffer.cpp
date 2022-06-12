@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
-#include "gap_buffer.h"
+#include "gapbuffer.h"
 
 using namespace std;
 
@@ -64,14 +64,9 @@ GapBuffer::GapBuffer(const GapBuffer &tb)
 {
     GAP_SIZE = tb.GAP_SIZE;
 
-    buffer = (type::char_type *)malloc(tb.bufend - tb.buffer);
+    buffer = (type::char_type *)malloc((tb.bufend - tb.buffer) * sizeof(type::char_type));
 
-#ifdef UNICODE
-        wcscpy(buffer, tb.buffer);
-#else
-        strcpy(buffer, tb.buffer);
-#endif // UNICODE
-
+    wcscpy(buffer, tb.buffer);
     bufend = buffer + (tb.bufend - tb.buffer);
     gapstart = buffer + (tb.gapstart - tb.buffer);
     gapend = gapstart + (tb.gapend - tb.gapstart);
@@ -150,7 +145,7 @@ void GapBuffer::ExpandBuffer(unsigned int size)
 
         int NewBufferSize = (bufend - buffer) + size + GAP_SIZE;
 
-        buffer = (type::char_type *)realloc(buffer, NewBufferSize);
+        buffer = (type::char_type *)realloc(buffer, NewBufferSize * sizeof(type::char_type));
 
         point += buffer - origbuffer;
         bufend += buffer - origbuffer;
@@ -403,7 +398,7 @@ int GapBuffer::InitBuffer(unsigned int size)
         free(buffer);
     }
 
-    buffer = (type::char_type *)malloc(size);
+    buffer = (type::char_type *)malloc(size * sizeof(type::char_type));
 
     if (!buffer)
     {
@@ -425,27 +420,23 @@ int GapBuffer::BufferSize()
     return (bufend - buffer) - (gapend - gapstart);
 }
 
-/*
-char* GapBuffer::GetBuffer()
-{
 
+type::char_type* GapBuffer::GetBuffer() const
+{
     return buffer;
 }
-*/
+
 
 void GapBuffer::PrintBuffer()
 {
     /*
     type::char_type ch;
-
     cout << "Printing the buffer: " << endl;
     SetPoint(0);
     while (point < bufend) {
         cout << GetCharMovePoint();
     }
-
     cout << "Printing the buffer in reverse: " << endl;
-
     while (point >= buffer) {
         cout << GetPrevCharMovePoint();
     }
